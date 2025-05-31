@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: #ffffff;
+        font-family: Arial, sans-serif;
+        color: #333;
+      }
+      .inputs {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        /* justify-content: center; */
+        background-color: aqua;
+      }
+      input {
+        width: 200px;
+        height: 30px;
+        margin: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        padding: 5px;
+      }
+      button {
+        width: 100px;
+        height: 30px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="inputs">
+      <h5>enter your weight in kg</h5>
+      <input type="text" id="input-weight" value=" " />
+      <h5>enter your height in m</h5>
+
+   <input type="text" id="input-height" value="  " /> 
+      <button id="btn">Calc</button> 
+
+      <h5 id="bmi"></h5>
+      <h4 id="bmi-cotegry"></h4>
+    </div>
+
+    <script>
+      var btn = document.getElementById("btn");
+
+      btn.addEventListener("click", function () {
+        console.log(" clicked")
+        var inputWeight = document.getElementById("input-weight").value;
+        var inputHeight = document.getElementById("input-height").value;
+        console.log("your Weight :" + inputWeight);
+        console.log("your Weight :" + inputHeight);
+        var bmi = inputWeight / (inputHeight * inputHeight);
+        console.log("your bmi is: " + bmi);
+
+        document.getElementById("bmi").innerHTML = "your bmi is: " + bmi;
+        var bmiCotegory = document.getElementById("bmi-cotegry");
+
+        if (bmi < 18) {
+          bmiCotegory = "you are underweight";
+        } else if (bmi >= 18 && bmi < 25) {
+          bmiCotegory = "you are normal";
+        } else if (bmi >= 25 && bmi < 30) {
+          bmiCotegory = "you are overweight";
+        } else {
+          bmiCotegory = "you are obese";
+        }
+        document.getElementById("bmi-cotegry").innerHTML = bmiCotegory;
+      });
+    </script>
+  </body>
+</html>
